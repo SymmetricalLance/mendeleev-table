@@ -1680,6 +1680,8 @@ function applyTheme(t) {
   // 정보 패널 내용
   document.querySelectorAll('.meter-bar').forEach(el=>{ el.style.background = T.border; });
   document.querySelectorAll('.info-table td, .prop-table td').forEach(el=>{ el.style.borderBottomColor = T.border; });
+  document.querySelectorAll('.info-table .v').forEach(el=>{ el.style.color = T.text; });
+  document.querySelectorAll('.info-table .k').forEach(el=>{ el.style.color = T.muted; });
   document.querySelectorAll('.info-name').forEach(el=>{ el.style.color = T.text; });
   document.querySelectorAll('.info-sub, .meter-lbl').forEach(el=>{ el.style.color = T.muted; });
   document.querySelectorAll('.info-sym-big').forEach(el=>{ el.style.color = T.accent; });
