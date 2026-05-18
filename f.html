@@ -1104,8 +1104,7 @@ function renderGroupBins() {
       if(!draggedElem) return;
       // 다중 드래그: draggedElems 전체를 이 빈으로 이동
       draggedElems.forEach(num => {
-        groupBins.forEach(b=>{ b.elems=b.elems.filter(n=>n!==num); });
-        bin.elems.push(num);
+        if(!bin.elems.includes(num)) bin.elems.push(num);
       });
       renderGroupBins();
     });
