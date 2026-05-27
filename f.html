@@ -540,9 +540,10 @@
     <h3>원소 목록 (1–24)</h3>
     <div class="palette-count" id="palette-count"></div>
     <div id="selection-badge">
-      <span id="sel-count-text"></span>
-      <button id="sel-clear-btn" onclick="clearSelection()">선택 해제</button>
-    </div>
+  <span id="sel-count-text"></span>
+  <button id="sel-clear-btn" onclick="clearSelection()">선택 해제</button>
+</div>
+<button id="sel-all-btn" onclick="selectAll()" style="padding:4px 10px;background:transparent;color:#5bc8af;border:1px solid #5bc8af;border-radius:6px;cursor:pointer;font-size:11px;font-family:'Noto Sans KR',sans-serif;transition:all .2s;">전체 선택</button>
     <div class="palette-grid" id="palette-grid"></div>
   </aside>
 
@@ -740,6 +741,16 @@ function clearSelection() {
   document.querySelectorAll('.elem-card.selected').forEach(c => c.classList.remove('selected'));
   updateSelectionBadge();
   if(typeof currentTheme !== 'undefined') applyTheme(currentTheme);
+function selectAll() {
+  elements.forEach(e => {
+    if (!isPlaced(e.num)) {
+      selectedNums.add(e.num);
+    }
+  });
+  document.querySelectorAll('.elem-card:not(.placed)').forEach(c => c.classList.add('selected'));
+  updateSelectionBadge();
+  if (typeof currentTheme !== 'undefined') applyTheme(currentTheme);
+}
 }
 
 // ══════════════════════════════════════════
