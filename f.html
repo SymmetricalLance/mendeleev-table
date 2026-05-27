@@ -741,6 +741,8 @@ function clearSelection() {
   document.querySelectorAll('.elem-card.selected').forEach(c => c.classList.remove('selected'));
   updateSelectionBadge();
   if(typeof currentTheme !== 'undefined') applyTheme(currentTheme);
+}
+  
 function selectAll() {
   elements.forEach(e => {
     if (!isPlaced(e.num)) {
